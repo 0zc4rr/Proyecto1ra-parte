@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Signin Template · Bootstrap v5.0</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+
+  <!-- Google Sign-In -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    function onSignIn(googleUser) {
+      // Extraer la información del usuario
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // No elimines esta consola, es útil para la identificación
+      console.log('Nombre: ' + profile.getName());
+      console.log('Imagen URL: ' + profile.getImageUrl());
+      console.log('Correo electrónico: ' + profile.getEmail());
+      
+      // Aquí puedes enviar la información del usuario a tu servidor si es necesario
+    }
+  </script>
+
+  <!-- Custom styles for this template -->
+  <link href="signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+  <main class="form-signin">
+    <form action="controlador/controlador.php" method="post">
+      <img class="mb-4" src="logo.png" alt="" width="500" height="300">
+      <h1 class="h3 mb-3 fw-normal">Ingrese sus credenciales</h1>
+
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required>
+        <label for="floatingInput">Correo Electrónico</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Recordarme
+        </label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit" value="Submit">Ingresar</button>
+      <div>
+        <label>
+          <a href="configuracion.php"> registrar</a>
+        </label>
+      </div>
+    </form>
+  </main>
+
+</body>
+</html>
